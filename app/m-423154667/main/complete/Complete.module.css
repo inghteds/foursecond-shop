@@ -1,0 +1,89 @@
+.completePage {
+  background-color: white;
+  text-align: center;
+  padding: 24px;
+}
+
+.thanks {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.productImage {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* 進行テキスト（中くらいサイズ） */
+.deliveryText {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ステータスバー */
+.statusContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 500px;
+  margin: 10px auto;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+}
+
+.circle.active {
+  border-color: red;
+}
+
+.line {
+  width: 80px;
+  height: 3px;
+  background-color: #ddd;
+}
+
+.line.active {
+  background-color: red;
+}
+
+.statusLabels {
+  display: flex;
+  justify-content: center;
+  gap: 66px;
+  margin-top: 6px;
+  margin-bottom: 130px;
+  font-size: 14px;
+}
+
+/* おすすめ */
+.recommendSection {
+  margin-top: 32px;
+  text-align: left;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.recommendTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}

@@ -1,0 +1,127 @@
+.cartPage {
+  background-color: #f2f2f2;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.cartContainer {
+  display: flex;
+  gap: 20px;
+  align-items: stretch; /* ← 高さを揃える */
+}
+
+/* □ 共通カード */
+.cartCard, .summaryCard {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;  /* ← 高さ計算用 */
+  justify-content: flex-start;
+}
+
+/* 左カードを広く */
+.cartCard {
+  flex: 2;
+}
+
+/* 右カード */
+.summaryCard {
+  flex: 1;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between; /* ✅ 左右に配置 */
+  align-items: center; /* ✅ 縦位置を揃える */
+  width: 100%;
+}
+
+
+/* ✅ 見出し太く大きく */
+.cardHeader h2 {
+  font-size: 26px;
+  font-weight: 800; /* 太く */
+}
+
+.priceLabel {
+  font-size: 14px;
+  color: #555;
+}
+
+/* 商品行 */
+.productRow {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.productImage {
+  border: 1px solid #ddd;
+}
+
+.productInfo {
+  margin-left: 12px;
+}
+
+.productTitle {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.productDelivery {
+  font-size: 14px;
+  color: #555;
+}
+
+.productCount {
+  margin-top: 36px;
+}
+
+.productPrice {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* 金額 */
+.yen {
+  font-size: 12px;
+  vertical-align: top;
+}
+.amount {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* ✅ 小計 */
+.summaryTitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* ✅ 小さい丸いボタンに修正 */
+.checkoutButton {
+  margin-top: auto;
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 20px;
+  padding: 6px 10px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.15s, transform 0.1s; /* ← 追加 */
+}
+
+/* ← ホバーで少し濃く */
+.checkoutButton:hover {
+  background-color: #f7ca00;
+}
+
+/* ← クリックで濃く＆押し込む */
+.checkoutButton:active {
+  background-color: #e7b800;
+  transform: scale(0.97);
+}
+
+

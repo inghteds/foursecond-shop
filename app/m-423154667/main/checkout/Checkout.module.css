@@ -1,0 +1,112 @@
+.checkoutPage {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.videoWrapper {
+  margin-top: 12px;
+}
+
+/* ===== 注文ボタン ===== */
+.orderButton {
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 24px;
+  padding: 10px 0;
+  width: 80%;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 auto 16px auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s, transform 0.1s;
+  height: 42px; /* ← 高さ固定でぐるぐる時もズレない */
+  box-sizing: border-box;
+}
+
+/* ホバー時 */
+.orderButton:hover {
+  background-color: #f7ca00;
+}
+
+/* クリック時 */
+.orderButton:active {
+  background-color: #e7b800;
+  transform: scale(0.97);
+}
+
+/* ローディング中（無効） */
+.orderButton:disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+/* ===== スピナー ===== */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  border-top: 3px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== 合計表示部分 ===== */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.totalLabel {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.totalPrice {
+  font-size: 26px;
+  font-weight: bold;
+}

@@ -1,0 +1,86 @@
+.headerWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.topHeader {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  height: 60px;
+  border-bottom: 1px solid #ddd;
+}
+
+.bottomHeader {
+  background-color: #f2f2f2;
+  height: 32px;
+}
+
+.menuButton {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.logoWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  position: relative;
+  top: 10px; /* 灰色エリアにまたがる調整 */
+}
+
+.rightArea {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.account {
+  font-size: 14px;
+  color: #333;
+}
+
+.cartLink {
+  font-size: 22px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bottomHeader {
+  background-color: #f2f2f2;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* ← 影を追加 */
+  position: relative;
+  z-index: 5;
+}
+
+.welcomeText {
+  font-size: 14px; /* 小さめに */
+  color: #444; /* 素直なダークグレー */
+  font-family: "Inter", "Roboto", "Noto Sans JP", sans-serif; /* 無機質フォント */
+  letter-spacing: 0.5px;
+}
+
+/* カートホバー時に外枠を表示 */
+.cartIcon {
+  border: 2px solid transparent;
+  border-radius: 6px;
+  padding: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.cartIcon:hover {
+  border-color: #000000; /* ← ホバー時に枠線出現 */
+}
+
+

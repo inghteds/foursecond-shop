@@ -1,0 +1,116 @@
+.card {
+  width: 250px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px; /* ← 角を丸く */
+  overflow: hidden;   /* ← 角丸に画像がはみ出さないように */
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* ===== 価格のデザイン ===== */
+.price {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.yen {
+  font-size: 14px;
+  margin-right: 2px;
+  line-height: 1;
+  position: relative;
+  top: 4px; /* ← ¥ を少し上に */
+  color: red;
+}
+
+.amount {
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+  line-height: 1;
+}
+
+.delivery {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+/* ===== Amazon風ボタン ===== */
+.cartButton {
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.15s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px; /* ← ボタン幅固定でサイズ変化防止 */
+  height: 34px;     /* ← 高さ固定 */
+  box-sizing: border-box;
+}
+
+/* ホバー時：少し濃く */
+.cartButton:hover {
+  background-color: #f7ca00;
+}
+
+/* クリック時：さらに濃く＋少し凹む */
+.cartButton:active {
+  background-color: #e7b800;
+  transform: scale(0.97);
+}
+
+/* 無効化中（ローディング時） */
+.cartButton:disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+/* ===== スピナー ===== */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
