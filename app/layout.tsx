@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   icons: {
   icon: "/logo2.JPEG", // public/logo2.JPEG
   },
+  robots: {
+  index: true,   // ← 検索結果に出してOK
+  follow: true,
+  },
 };
 
 export default function RootLayout({
