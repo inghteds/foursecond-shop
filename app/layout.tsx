@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "4秒通販",
   description: "4秒でお届けいたします。",
   icons: {
-  icon: "/logo2.JPEG", // public/logo2.JPEG
+    icon: "/logo2.PNG", // public/logo2.PNG
   },
   robots: {
   index: true,   // ← 検索結果に出してOK
