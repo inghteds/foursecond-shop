@@ -41,16 +41,17 @@ export default function CompletePage() {
   }, []);
 
   const products = Array.from({ length: 20 }, () => ({
-    imageSrc: "/product1.png",
+    imageSrc: "/product_white.jpeg",
     title: "お届け物",
     price: "¥0",
     delivery: "4秒でお届け",
+    careful: "※交通事情や配達人の都合により、予定のお届け時間が前後する場合がございます。",
   }));
 
   return (
     <div className={styles.completePage}>
       <h1 className={styles.thanks}>ご購入ありがとうございます！</h1>
-      <img src="/product1.png" alt="商品画像" className={styles.productImage} />
+      <img src="/product_white.jpeg" alt="商品画像" className={styles.productImage} />
 
       {/* ✅ 配送状況テキスト */}
       <p className={styles.deliveryText}>{status}</p>

@@ -63,11 +63,11 @@
 
 /* ===== Amazon風ボタン ===== */
 .cartButton {
-  background-color: #ffd814;
-  border: 1px solid #fcd200;
+  background-color: #3a3a3a;
   border-radius: 20px;
   padding: 6px 14px;
-  font-weight: bold;
+  font-weight: light;
+  color: white;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.15s, transform 0.1s;
@@ -81,12 +81,12 @@
 
 /* ホバー時：少し濃く */
 .cartButton:hover {
-  background-color: #f7ca00;
+  background-color: #000000;
 }
 
 /* クリック時：さらに濃く＋少し凹む */
 .cartButton:active {
-  background-color: #e7b800;
+  background-color: #000000;
   transform: scale(0.97);
 }
 
@@ -96,12 +96,11 @@
   cursor: not-allowed;
 }
 
-/* ===== スピナー ===== */
 .spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-top: 2px solid #000;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid #ffffff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -113,4 +112,13 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+
+
+.careful {
+  color: #777;          /* グレーに変更 */
+  font-size: 12px;      /* 小さくする */
+  margin-top: 2px;      /* deliveryとの空白を狭く */
 }

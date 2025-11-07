@@ -10,9 +10,10 @@ type ProductCardProps = {
   title: string;
   price: string;
   delivery: string;
+  careful: string ;
 };
 
-export default function ProductCard({ imageSrc, title, delivery }: ProductCardProps) {
+export default function ProductCard({ imageSrc, title, delivery, careful }: ProductCardProps) {
   const { isAdded, addToCart } = useCart();
   const [loading, setLoading] = useState(false);
 
@@ -39,6 +40,7 @@ export default function ProductCard({ imageSrc, title, delivery }: ProductCardPr
         </div>
 
         <p className={styles.delivery}>{delivery}</p>
+        <p className={styles.careful}>{careful}</p>
 
         {!isAdded && (
           <button

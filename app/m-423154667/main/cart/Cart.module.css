@@ -1,3 +1,4 @@
+/* ===== ページ全体 ===== */
 .cartPage {
   background-color: #f2f2f2;
   padding: 20px;
@@ -7,7 +8,7 @@
 .cartContainer {
   display: flex;
   gap: 20px;
-  align-items: stretch; /* ← 高さを揃える */
+  align-items: stretch; /* 高さを揃える */
 }
 
 /* □ 共通カード */
@@ -16,32 +17,27 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 16px;
   display: flex;
-  flex-direction: column;  /* ← 高さ計算用 */
+  flex-direction: column;  /* 高さ計算用 */
   justify-content: flex-start;
 }
 
 /* 左カードを広く */
-.cartCard {
-  flex: 2;
-}
+.cartCard { flex: 2; }
 
 /* 右カード */
-.summaryCard {
-  flex: 1;
-}
+.summaryCard { flex: 1; }
 
 .cardHeader {
   display: flex;
-  justify-content: space-between; /* ✅ 左右に配置 */
-  align-items: center; /* ✅ 縦位置を揃える */
+  justify-content: space-between; /* 左右に配置 */
+  align-items: center; /* 縦位置を揃える */
   width: 100%;
 }
 
-
-/* ✅ 見出し太く大きく */
+/* 見出し太く大きく */
 .cardHeader h2 {
   font-size: 26px;
-  font-weight: 800; /* 太く */
+  font-weight: 800;
 }
 
 .priceLabel {
@@ -93,35 +89,76 @@
   font-weight: bold;
 }
 
-/* ✅ 小計 */
+/* 小計 */
 .summaryTitle {
   font-weight: bold;
   margin-bottom: 8px;
 }
 
-/* ✅ 小さい丸いボタンに修正 */
+/* ===== ボタン（黒トーン＋スピナー対応） ===== */
 .checkoutButton {
   margin-top: auto;
-  background-color: #ffd814;
-  border: 1px solid #fcd200;
+  background-color: #3a3a3a;   /* 押す前は薄めの黒 */
+  border: none;
   border-radius: 20px;
   padding: 6px 10px;
   width: 100%;
+  height: 36px;
   font-weight: bold;
+  color: #fff;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.15s, transform 0.1s; /* ← 追加 */
+  display: flex;               /* 中央にスピナー/文字を配置 */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.12s, transform 0.1s;
 }
 
-/* ← ホバーで少し濃く */
 .checkoutButton:hover {
-  background-color: #f7ca00;
+  background-color: #000;      /* ホバーは真っ黒 */
 }
 
-/* ← クリックで濃く＆押し込む */
 .checkoutButton:active {
-  background-color: #e7b800;
+  background-color: #000;      /* クリックも真っ黒 */
   transform: scale(0.97);
 }
 
+.checkoutButton:disabled {
+  opacity: 0.9;
+  cursor: not-allowed;
+}
 
+/* ===== スピナー（ページ全体用） ===== */
+.loadingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;      /* 真っ白に見せたい場合 */
+  height: 100vh;
+  width: 100%;
+}
+
+/* 大きめスピナー（ページ読み込み時） */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(0,0,0,0.2);
+  border-top: 3px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* 小型スピナー（ボタン内） */
+.spinnerSmall {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

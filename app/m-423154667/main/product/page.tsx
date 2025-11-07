@@ -2,14 +2,15 @@ import ProductCard from "@/components/Header/ProductCard/ProductCard";
 
 export default function ProductsPage() {
   const products = Array.from({ length: 100 }, () => ({
-    imageSrc: "/product1.png",
-    title: "お届け物",
+    imageSrc: "/product_white.jpeg",
+    title: "[４秒通販限定]お楽しみボックス",
     price: "¥0",
-    delivery: "4秒でお届け",
+    delivery: "無料配送・4秒でお届け",
+    careful: "※交通事情や配達人の都合により、予定のお届け時間が前後する場合がございます。",
   }));
 
   return (
-    <main style={styles.container}>
+    <main style={styles.container }>
       {products.map((p, index) => (
         <ProductCard key={index} {...p} />
       ))}
