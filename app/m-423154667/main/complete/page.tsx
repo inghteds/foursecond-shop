@@ -41,7 +41,7 @@ export default function CompletePage() {
   }, []);
 
   const products = Array.from({ length: 20 }, () => ({
-    imageSrc: "/product_white.jpeg",
+    imageSrc: "/product_white.png",
     title: "お届け物",
     price: "¥0",
     delivery: "4秒でお届け",
@@ -51,7 +51,7 @@ export default function CompletePage() {
   return (
     <div className={styles.completePage}>
       <h1 className={styles.thanks}>ご購入ありがとうございます！</h1>
-      <img src="/product_white.jpeg" alt="商品画像" className={styles.productImage} />
+      <img src="/product_white.png" alt="商品画像" className={styles.productImage} />
 
       {/* ✅ 配送状況テキスト */}
       <p className={styles.deliveryText}>{status}</p>

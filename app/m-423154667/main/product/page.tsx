@@ -2,7 +2,7 @@ import ProductCard from "@/components/Header/ProductCard/ProductCard";
 
 export default function ProductsPage() {
   const products = Array.from({ length: 100 }, () => ({
-    imageSrc: "/product_white.jpeg",
+    imageSrc: "/product_white.png",
     title: "[４秒通販限定]お楽しみボックス",
     price: "¥0",
     delivery: "無料配送・4秒でお届け",

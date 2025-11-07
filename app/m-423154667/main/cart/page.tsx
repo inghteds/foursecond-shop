@@ -42,7 +42,7 @@ export default function CartPage() {
           <hr />
           <div className={styles.productRow}>
             <Image
-              src="/product_white.jpeg"
+              src="/product_white.png"
               alt="お届け物"
               width={120}
               height={120}
