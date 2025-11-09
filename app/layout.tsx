@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 // ✅ Google Search Console 用の meta タグを「other」キー内に追加
 export const metadata: Metadata = {
   title: "4秒通販",
-  description: "4秒でお届けいたします。",
+  description: "4秒通販です。４秒で商品をお届けいたします。",
   icons: {
     icon: "/logo2.png",
   },
