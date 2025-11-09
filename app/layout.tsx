@@ -5,7 +5,7 @@ import "./globals.css";
 // ✅ フォントをここで読み込み
 import { Noto_Sans_JP } from "next/font/google";
 const notoSansJp = Noto_Sans_JP({
-  weight: ["500"], // 普通 / 中 / 太字
+  weight: ["500"],
   subsets: ["latin"],
 });
 
@@ -19,15 +19,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// ✅ Google Search Console 用の meta タグを「other」キー内に追加
 export const metadata: Metadata = {
   title: "4秒通販",
   description: "4秒でお届けいたします。",
   icons: {
-    icon: "/logo2.png", // public/logo2.png
+    icon: "/logo2.png",
   },
   robots: {
-    index: true, // ← 検索結果に出してOK
+    index: true,
     follow: true,
+  },
+  other: {
+    "google-site-verification": "JuIbKa05TqSx1A1UZniPMTViLnpIB9NBg9_cGu1TvF8",
   },
 };
 
@@ -37,11 +41,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.className} antialiased`}
       >
-        {children}å
+        {children}
       </body>
     </html>
   );
