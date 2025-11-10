@@ -39,10 +39,7 @@ export default function Header() {
           <span className={styles.deliveryLabel}>お届け先　あああああさん</span>
 
           {!found ? (
-            <div className={styles.loadingContainer}>
-              <div className={styles.spinner}></div>
-              <span className={styles.deliveryStatus}>居場所を探しています。</span>
-            </div>
+              <span className={styles.deliveryStatus}>発見しました。</span>
           ) : (
             <span className={styles.deliveryStatus}>発見しました。</span>
           )}
