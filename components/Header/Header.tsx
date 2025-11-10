@@ -81,7 +81,7 @@ export default function Header() {
 
       {/* 下段 */}
       <div className={styles.bottomHeader}>
-        <span className={styles.welcomeText}>ようこそ、４秒通販へ</span>
+        <span className={styles.welcomeText}>見たな</span>
       </div>
     </header>
   );

@@ -11,7 +11,7 @@ export default function ErrorPage() {
       <h2 className={styles.title}>エラーが発生しました。</h2>
       <button
         className={styles.reloadButton}
-        onClick={() => router.push("/main/product")}
+        onClick={() => router.push("/m-423154667/main/product")}
       >
         再読み込み
       </button>
