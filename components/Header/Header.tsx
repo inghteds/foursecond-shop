@@ -39,7 +39,10 @@ export default function Header() {
           <span className={styles.deliveryLabel}>お届け先　あああああさん</span>
 
           {!found ? (
-              <span className={styles.deliveryStatus}>発見しました。</span>
+            <div className={styles.loadingContainer}>
+              <div className={styles.spinner}></div>
+              <span className={styles.deliveryStatus}>居場所を探しています。</span>
+            </div>
           ) : (
             <span className={styles.deliveryStatus}>発見しました。</span>
           )}
@@ -78,7 +81,7 @@ export default function Header() {
 
       {/* 下段 */}
       <div className={styles.bottomHeader}>
-        <span className={styles.welcomeText}>見たな</span>
+        <span className={styles.welcomeText}>ようこそ、４秒通販へ</span>
       </div>
     </header>
   );
