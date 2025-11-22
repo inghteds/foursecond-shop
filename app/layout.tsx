@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// ✅ UserContext をインポート
+import { UserProvider } from "@/context/UserContext";
+
 // ✅ Google Search Console 用の meta タグを「other」キー内に追加
 export const metadata: Metadata = {
   title: "4秒通販",
@@ -45,7 +48,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.className} antialiased`}
       >
-        {children}
+        {/* ✅ UserProviderで全体をラップ */}
+        <UserProvider>{children}</UserProvider>
       </body>
     </html>
   );

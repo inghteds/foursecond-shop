@@ -1,19 +1,28 @@
 'use client';
 
-// app/register/page.tsx
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useUser } from "@/context/UserContext";
 
 export default function SignupPage() {
   const router = useRouter();
+  const { setUsername } = useUser();
   const [loading, setLoading] = useState(false);
+  const [usernameInput, setUsernameInput] = useState("");
+  const [error, setError] = useState("");
 
   const handleRegister = () => {
+    if (!usernameInput.trim()) {
+      setError("ユーザーネームを入力してください。");
+      return;
+    }
+    setError("");
     setLoading(true);
+    setUsername(usernameInput);
     setTimeout(() => {
       router.push("/m-423154667/main/product");
-    }, 1000); // 1秒後に遷移
+    }, 1000);
   };
 
   return (
@@ -32,7 +41,14 @@ export default function SignupPage() {
 
         <div className="field">
           <label htmlFor="username">ユーザーネーム</label>
-          <input type="text" id="username" placeholder="ユーザーネームを入力" />
+          <input
+            type="text"
+            id="username"
+            placeholder="ユーザーネームを入力"
+            value={usernameInput}
+            onChange={(e) => setUsernameInput(e.target.value)}
+          />
+          {error && <p className="error">{error}</p>}
         </div>
 
         <button
@@ -91,6 +107,12 @@ export default function SignupPage() {
           border: 1px solid #ccc;
           border-radius: 6px;
           font-size: 14px;
+        }
+
+        .error {
+          color: red;
+          font-size: 13px;
+          margin-top: 4px;
         }
 
         .registerButton {

@@ -5,9 +5,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import { useCart } from "@/context/CartContext";
+import { useUser } from "@/context/UserContext"; // ✅ ユーザーコンテキストをインポート
 
 export default function Header() {
   const { cartCount } = useCart();
+  const { username } = useUser(); // ✅ ユーザー名を取得
   const cartImage = cartCount > 0 ? "/cart-1.png" : "/cart-0.png";
   const [found, setFound] = useState(false);
 
@@ -21,6 +23,9 @@ export default function Header() {
     window.location.reload();
   };
 
+  // ✅ ユーザー名が未設定なら「ゲストさん」と表示
+  const displayName = username ? `${username}さん` : "ゲストさん";
+
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.topHeader}>
@@ -30,13 +35,19 @@ export default function Header() {
         {/* ロゴ */}
         <div className={styles.logoWrapper}>
           <Link href="/m-423154667/main/product">
-            <Image src="/logo.png" alt="4秒通販" width={120} height={50} className={styles.logo} />
+            <Image
+              src="/logo.png"
+              alt="4秒通販"
+              width={120}
+              height={50}
+              className={styles.logo}
+            />
           </Link>
         </div>
 
         {/* お届け先 */}
         <div className={styles.deliveryWrapper}>
-          <span className={styles.deliveryLabel}>お届け先　あああああさん</span>
+          <span className={styles.deliveryLabel}>お届け先　{displayName}</span>
 
           {!found ? (
             <div className={styles.loadingContainer}>
@@ -57,10 +68,15 @@ export default function Header() {
           />
           <button
             className={styles.searchButton}
-            type="button"           // ← デフォルトsubmitを防止
-            onClick={handleSearchClick} // ← リロード処理
+            type="button"
+            onClick={handleSearchClick}
           >
-            <Image src="/search-icon-white.png" alt="検索" width={20} height={20} />
+            <Image
+              src="/search-icon-white.png"
+              alt="検索"
+              width={20}
+              height={20}
+            />
           </button>
         </div>
 
@@ -71,7 +87,7 @@ export default function Header() {
             <span className={styles.jpText}>JP</span>
           </div>
           <span className={styles.account}>
-            あああああさんの<br />アカウント
+            {displayName}の<br />アカウント
           </span>
           <Link href="/m-423154667/main/cart" className={styles.cartIcon}>
             <Image src={cartImage} alt="cart" width={57} height={57} />
