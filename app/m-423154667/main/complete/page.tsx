@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Complete.module.css";
 import ProductCard from "@/components/Header/ProductCard/ProductCard";
+import Link from "next/link";
 
 export default function CompletePage() {
-  const [status, setStatus] = useState("発送準備中"); // ✅ 初期値で設定
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1); // ✅ 初期ステップセット
+  const [status, setStatus] = useState("発送準備中");
+  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const timers = useRef<number[]>([]);
 
   useEffect(() => {
-    // 0.2秒後 → 配送中（step2）
     timers.current.push(
       window.setTimeout(() => {
         setStatus("配送中");
@@ -18,7 +18,6 @@ export default function CompletePage() {
       }, 200)
     );
 
-    // 0.3秒後 → 配達中（step3固定）
     timers.current.push(
       window.setTimeout(() => {
         setStatus("配達中");
@@ -26,7 +25,6 @@ export default function CompletePage() {
       }, 300)
     );
 
-    // 4秒後 → 配達完了（終了）
     timers.current.push(
       window.setTimeout(() => {
         setStatus("配達完了");
@@ -45,7 +43,8 @@ export default function CompletePage() {
     title: "お届け物",
     price: "¥0",
     delivery: "4秒でお届け",
-    careful: "※交通事情や配達人の都合により、予定のお届け時間が前後する場合がございます。",
+    careful:
+      "※交通事情や配達人の都合により、予定のお届け時間が前後する場合がございます。",
   }));
 
   return (
@@ -53,16 +52,19 @@ export default function CompletePage() {
       <h1 className={styles.thanks}>ご購入ありがとうございます！</h1>
       <img src="/product_white.png" alt="商品画像" className={styles.productImage} />
 
-      {/* ✅ 配送状況テキスト */}
       <p className={styles.deliveryText}>{status}</p>
 
       {/* ✅ ステータスバー */}
       <div className={styles.statusContainer}>
         {[1, 2, 3, 4].map((num) => (
           <div className={styles.statusItem} key={num}>
-            <div className={`${styles.circle} ${step >= num ? styles.active : ""}`} />
+            <div
+              className={`${styles.circle} ${step >= num ? styles.active : ""}`}
+            />
             {num < 4 && (
-              <div className={`${styles.line} ${step > num ? styles.active : ""}`} />
+              <div
+                className={`${styles.line} ${step > num ? styles.active : ""}`}
+              />
             )}
           </div>
         ))}
@@ -73,6 +75,13 @@ export default function CompletePage() {
         <span>発送済み</span>
         <span>配達中</span>
         <span>配達済み</span>
+      </div>
+
+      {/* ✅ 携帯専用「買い物を続ける」ボタン */}
+      <div className={styles.continueShoppingWrapper}>
+        <Link href="/m-423154667/main/product" className={styles.continueButton}>
+          買い物を続ける
+        </Link>
       </div>
 
       {/* おすすめ */}

@@ -1,11 +1,11 @@
 /* ===========================
-   PC（共通デザイン）
+   共通（PC）
 =========================== */
 .completePage {
   background-color: white;
   text-align: center;
   padding: 24px;
-  color: #000; /* ← 全体の文字色を黒に */
+  color: #000;
 }
 
 .thanks {
@@ -21,7 +21,6 @@
   display: block;
 }
 
-/* 進行テキスト */
 .deliveryText {
   margin-top: 12px;
   font-size: 18px;
@@ -76,7 +75,36 @@
   color: #000;
 }
 
-/* おすすめセクション */
+/* ===========================
+   買い物を続けるボタン（デフォルトは非表示）
+=========================== */
+.continueShoppingWrapper {
+  display: none; /* ← PCでは非表示 */
+}
+
+.continueButton {
+  background-color: #1d1d1d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 22px;
+  padding: 10px 24px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.2s, transform 0.1s;
+  display: inline-block;
+}
+
+.continueButton:hover {
+  background-color: #000;
+}
+
+.continueButton:active {
+  transform: scale(0.97);
+}
+
+/* ===========================
+   おすすめ商品
+=========================== */
 .recommendSection {
   margin-top: 32px;
   text-align: left;
@@ -92,7 +120,6 @@
   color: #000;
 }
 
-/* 商品グリッド（PC：5列） */
 .productGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -105,7 +132,6 @@
 @media (max-width: 768px) {
   .completePage {
     padding: 16px;
-    text-align: center;
   }
 
   .thanks {
@@ -122,7 +148,6 @@
     margin-top: 10px;
   }
 
-  /* ステータスバーを縮小して中央寄せ */
   .statusContainer {
     width: 90%;
     gap: 6px;
@@ -146,19 +171,35 @@
     margin-bottom: 60px;
   }
 
+  /* ✅ 携帯用の「買い物を続ける」ボタン */
+  .continueShoppingWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .continueButton {
+    width: 70%;
+    text-align: center;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+  }
+
   /* おすすめセクション */
   .recommendSection {
-    margin-top: 24px;
+    margin-top: 10px;
     width: 100%;
-    text-align: left;
   }
 
   .recommendTitle {
     font-size: 18px;
     margin-bottom: 10px;
+    text-align: left;
   }
 
-  /* ✅ おすすめ商品 2列に変更 */
+  /* ✅ おすすめ商品：2列 */
   .productGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -190,6 +231,11 @@
     gap: 16px;
     font-size: 11px;
     margin-bottom: 50px;
+  }
+
+  .continueButton {
+    width: 80%;
+    font-size: 14px;
   }
 
   .recommendTitle {

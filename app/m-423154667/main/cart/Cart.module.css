@@ -228,3 +228,18 @@
     font-size: 15px;
   }
 }
+
+/* ===== カートが空の場合 ===== */
+.emptyCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.emptyText {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}

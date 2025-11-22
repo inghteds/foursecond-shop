@@ -5,6 +5,7 @@
   background-color: #f2f2f2;
   min-height: 100vh;
   padding: 20px;
+  color: #000; /* ← 全体黒文字 */
 }
 
 .container {
@@ -20,6 +21,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   padding: 16px;
   border-radius: 6px;
+  color: #000; /* ← カード内文字も黒 */
 }
 
 .cardTitle {
@@ -27,6 +29,7 @@
   font-weight: 700;
   line-height: 1.6;
   margin-bottom: 8px;
+  color: #000;
 }
 
 .videoWrapper {
@@ -103,10 +106,12 @@
   margin-bottom: 8px;
   font-size: 15px;
   line-height: 1.6;
+  color: #000; /* ← 全て黒文字 */
 }
 
 .price {
   font-weight: bold;
+  color: #e60000; /* ← 金額（¥0）は赤 */
 }
 
 .totalRow {
@@ -114,16 +119,19 @@
   justify-content: space-between;
   margin-top: 12px;
   align-items: baseline;
+  color: #000; /* ← ラベルは黒 */
 }
 
 .totalLabel {
   font-size: 18px;
   font-weight: bold;
+  color: #000;
 }
 
 .totalPrice {
   font-size: 26px;
   font-weight: bold;
+  color: #e60000; /* ← 金額（¥0）は赤 */
 }
 
 /* =====================
@@ -147,6 +155,7 @@
   .cardTitle {
     font-size: 16px;
     line-height: 1.5;
+    color: #000;
   }
 
   .videoWrapper {
@@ -169,26 +178,29 @@
 
   .row {
     font-size: 14px;
-    flex-wrap: wrap; /* ← ✅ 文字が被らないように折り返し対応 */
+    flex-wrap: wrap;
+    color: #000; /* ← 黒文字固定 */
   }
 
   .price {
     margin-left: 8px;
-    color: #e60000; /* 金額は赤で強調 */
+    color: #e60000; /* ← 金額のみ赤 */
   }
 
   .totalRow {
     flex-wrap: wrap;
     margin-top: 10px;
+    color: #000;
   }
 
   .totalLabel {
     font-size: 16px;
+    color: #000;
   }
 
   .totalPrice {
     font-size: 22px;
-    color: #e60000; /* 金額赤 */
+    color: #e60000;
   }
 }
 
@@ -206,6 +218,7 @@
 
   .cardTitle {
     font-size: 15px;
+    color: #000;
   }
 
   .orderButton {
@@ -215,13 +228,16 @@
 
   .row {
     font-size: 13px;
+    color: #000;
   }
 
   .totalLabel {
     font-size: 15px;
+    color: #000;
   }
 
   .totalPrice {
     font-size: 20px;
+    color: #e60000;
   }
 }
