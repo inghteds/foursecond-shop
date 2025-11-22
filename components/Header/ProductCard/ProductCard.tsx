@@ -10,10 +10,15 @@ type ProductCardProps = {
   title: string;
   price: string;
   delivery: string;
-  careful: string ;
+  careful: string;
 };
 
-export default function ProductCard({ imageSrc, title, delivery, careful }: ProductCardProps) {
+export default function ProductCard({
+  imageSrc,
+  title,
+  delivery,
+  careful,
+}: ProductCardProps) {
   const { isAdded, addToCart } = useCart();
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +27,7 @@ export default function ProductCard({ imageSrc, title, delivery, careful }: Prod
     setTimeout(() => {
       addToCart();
       setLoading(false);
-    }, 500); // 0.5秒ぐるぐる
+    }, 500);
   };
 
   return (

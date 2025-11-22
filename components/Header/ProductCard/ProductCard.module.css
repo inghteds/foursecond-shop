@@ -1,8 +1,8 @@
 .card {
   width: 250px;
   border: 1px solid #e0e0e0;
-  border-radius: 3px; /* ← 角を丸く */
-  overflow: hidden;   /* ← 角丸に画像がはみ出さないように */
+  border-radius: 3px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   background: white;
@@ -32,7 +32,7 @@
   margin-bottom: 8px;
 }
 
-/* ===== 価格のデザイン ===== */
+/* ===== 価格デザイン ===== */
 .price {
   display: flex;
   align-items: flex-start;
@@ -44,7 +44,7 @@
   margin-right: 2px;
   line-height: 1;
   position: relative;
-  top: 4px; /* ← ¥ を少し上に */
+  top: 4px;
   color: red;
 }
 
@@ -61,12 +61,11 @@
   color: #000;
 }
 
-/* ===== Amazon風ボタン ===== */
+/* ===== カートボタン ===== */
 .cartButton {
   background-color: #3a3a3a;
   border-radius: 20px;
   padding: 6px 14px;
-  font-weight: light;
   color: white;
   cursor: pointer;
   font-size: 14px;
@@ -74,23 +73,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 120px; /* ← ボタン幅固定でサイズ変化防止 */
-  height: 34px;     /* ← 高さ固定 */
+  min-width: 120px;
+  height: 34px;
   box-sizing: border-box;
 }
 
-/* ホバー時：少し濃く */
 .cartButton:hover {
   background-color: #000000;
 }
 
-/* クリック時：さらに濃く＋少し凹む */
 .cartButton:active {
   background-color: #000000;
   transform: scale(0.97);
 }
 
-/* 無効化中（ローディング時） */
 .cartButton:disabled {
   opacity: 0.85;
   cursor: not-allowed;
@@ -114,11 +110,55 @@
   }
 }
 
-
-
-
 .careful {
-  color: #777;          /* グレーに変更 */
-  font-size: 12px;      /* 小さくする */
-  margin-top: 2px;      /* deliveryとの空白を狭く */
+  color: #777;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* =============================
+   スマホ用デザイン（携帯対応）
+============================= */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  .imageWrapper {
+    height: 160px; /* ← 高さをやや低く */
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .price {
+    margin-bottom: 4px;
+  }
+
+  .yen {
+    font-size: 13px;
+    top: 3px;
+  }
+
+  .amount {
+    font-size: 22px;
+  }
+
+  .delivery {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .careful {
+    font-size: 11px;
+  }
+
+  .cartButton {
+    width: 100%;
+    height: 36px;
+    border-radius: 18px;
+    font-size: 13px;
+  }
 }

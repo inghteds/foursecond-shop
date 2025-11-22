@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* PC: 5列 */
+  gap: 8px;
+  padding: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* タブレット用 */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* スマホ用 */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* ← 横2列 */
+    gap: 10px;
+    padding: 12px;
+  }
+}
+
+/* さらに小さいスマホ（SEなど） */
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr; /* ← 1列表示 */
+    gap: 8px;
+    padding: 10px;
+  }
+}
