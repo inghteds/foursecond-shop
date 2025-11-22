@@ -1,33 +1,42 @@
+/* =====================
+   共通（PC）
+===================== */
 .container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* PC: 5列 */
+  grid-template-columns: repeat(5, 1fr); /* PCでは5列 */
   gap: 8px;
   padding: 16px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* タブレット用 */
+/* =====================
+   タブレット対応
+===================== */
 @media (max-width: 1024px) {
   .container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* タブレット：3列 */
   }
 }
 
-/* スマホ用 */
+/* =====================
+   スマホ対応
+===================== */
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: repeat(2, 1fr); /* ← 横2列 */
+    grid-template-columns: repeat(2, 1fr); /* スマホ：2列 */
     gap: 10px;
-    padding: 12px;
+    padding: 10px;
   }
 }
 
-/* さらに小さいスマホ（SEなど） */
+/* =====================
+   小型スマホ対応
+===================== */
 @media (max-width: 480px) {
   .container {
-    grid-template-columns: 1fr; /* ← 1列表示 */
+    grid-template-columns: repeat(2, 1fr); /* SEなどでも2列維持 */
     gap: 8px;
-    padding: 10px;
+    padding: 8px;
   }
 }
