@@ -19,7 +19,7 @@ export default function CartPage() {
     setLoading(true);
     setTimeout(() => {
       router.push("/m-423154667/main/checkout");
-    }, 600); // 遅延して遷移
+    }, 600);
   };
 
   if (!visible) {
@@ -33,7 +33,7 @@ export default function CartPage() {
   return (
     <div className={styles.cartPage}>
       <div className={styles.cartContainer}>
-        {/* 左：ショッピングカートカード */}
+        {/* ===== 左：ショッピングカート（PCのみ表示） ===== */}
         <div className={styles.cartCard}>
           <div className={styles.cardHeader}>
             <h2>ショッピングカート</h2>
@@ -60,7 +60,7 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* 右：小計カード */}
+        {/* ===== 右：小計カード（常に表示） ===== */}
         <div className={styles.summaryCard}>
           <p className={styles.summaryTitle}>小計（1個の商品）</p>
           <p className={styles.summaryPrice}>

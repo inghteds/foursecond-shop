@@ -1,13 +1,18 @@
+/* ===========================
+   PC（共通デザイン）
+=========================== */
 .completePage {
   background-color: white;
   text-align: center;
   padding: 24px;
+  color: #000; /* ← 全体の文字色を黒に */
 }
 
 .thanks {
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 16px;
+  color: #000;
 }
 
 .productImage {
@@ -16,11 +21,12 @@
   display: block;
 }
 
-/* 進行テキスト（中くらいサイズ） */
+/* 進行テキスト */
 .deliveryText {
   margin-top: 12px;
   font-size: 18px;
   font-weight: 500;
+  color: #000;
 }
 
 /* ステータスバー */
@@ -43,6 +49,7 @@
   height: 22px;
   border-radius: 50%;
   border: 3px solid #ccc;
+  background-color: white;
 }
 
 .circle.active {
@@ -66,24 +73,131 @@
   margin-top: 6px;
   margin-bottom: 130px;
   font-size: 14px;
+  color: #000;
 }
 
-/* おすすめ */
+/* おすすめセクション */
 .recommendSection {
   margin-top: 32px;
   text-align: left;
   width: 90%;
   margin-inline: auto;
+  color: #000;
 }
 
 .recommendTitle {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 12px;
+  color: #000;
 }
 
+/* 商品グリッド（PC：5列） */
 .productGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
+}
+
+/* ===========================
+   携帯版（max-width: 768px）
+=========================== */
+@media (max-width: 768px) {
+  .completePage {
+    padding: 16px;
+    text-align: center;
+  }
+
+  .thanks {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .productImage {
+    width: 160px;
+  }
+
+  .deliveryText {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  /* ステータスバーを縮小して中央寄せ */
+  .statusContainer {
+    width: 90%;
+    gap: 6px;
+    margin: 8px auto;
+  }
+
+  .circle {
+    width: 18px;
+    height: 18px;
+    border-width: 2px;
+  }
+
+  .line {
+    width: 40px;
+    height: 2px;
+  }
+
+  .statusLabels {
+    gap: 22px;
+    font-size: 12px;
+    margin-bottom: 60px;
+  }
+
+  /* おすすめセクション */
+  .recommendSection {
+    margin-top: 24px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .recommendTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  /* ✅ おすすめ商品 2列に変更 */
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+/* ===========================
+   超小型スマホ（max-width: 480px）
+=========================== */
+@media (max-width: 480px) {
+  .thanks {
+    font-size: 20px;
+  }
+
+  .deliveryText {
+    font-size: 15px;
+  }
+
+  .circle {
+    width: 16px;
+    height: 16px;
+  }
+
+  .line {
+    width: 32px;
+  }
+
+  .statusLabels {
+    gap: 16px;
+    font-size: 11px;
+    margin-bottom: 50px;
+  }
+
+  .recommendTitle {
+    font-size: 16px;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
 }

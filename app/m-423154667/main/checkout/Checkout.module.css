@@ -1,3 +1,6 @@
+/* =====================
+   共通スタイル
+===================== */
 .checkoutPage {
   background-color: #f2f2f2;
   min-height: 100vh;
@@ -22,10 +25,22 @@
 .cardTitle {
   font-size: 18px;
   font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
 .videoWrapper {
   margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.videoWrapper iframe {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  border: none;
 }
 
 /* ===== 注文ボタン ===== */
@@ -44,7 +59,7 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.15s, transform 0.1s;
-  height: 42px; /* ← 高さ固定でぐるぐる時もズレない */
+  height: 42px;
   box-sizing: border-box;
 }
 
@@ -76,10 +91,7 @@
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
@@ -89,6 +101,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .price {
@@ -99,6 +113,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 12px;
+  align-items: baseline;
 }
 
 .totalLabel {
@@ -109,4 +124,104 @@
 .totalPrice {
   font-size: 26px;
   font-weight: bold;
+}
+
+/* =====================
+   携帯レイアウト対応
+===================== */
+@media (max-width: 768px) {
+  .checkoutPage {
+    padding: 12px;
+  }
+
+  .container {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 12px;
+    border-radius: 4px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .videoWrapper {
+    margin-top: 10px;
+  }
+
+  .videoWrapper iframe {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    border-radius: 4px;
+  }
+
+  .orderButton {
+    width: 100%;
+    font-size: 15px;
+    height: 40px;
+    margin-bottom: 12px;
+  }
+
+  .row {
+    font-size: 14px;
+    flex-wrap: wrap; /* ← ✅ 文字が被らないように折り返し対応 */
+  }
+
+  .price {
+    margin-left: 8px;
+    color: #e60000; /* 金額は赤で強調 */
+  }
+
+  .totalRow {
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .totalLabel {
+    font-size: 16px;
+  }
+
+  .totalPrice {
+    font-size: 22px;
+    color: #e60000; /* 金額赤 */
+  }
+}
+
+/* =====================
+   超小型スマホ対応
+===================== */
+@media (max-width: 480px) {
+  .checkoutPage {
+    padding: 8px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .cardTitle {
+    font-size: 15px;
+  }
+
+  .orderButton {
+    font-size: 14px;
+    height: 38px;
+  }
+
+  .row {
+    font-size: 13px;
+  }
+
+  .totalLabel {
+    font-size: 15px;
+  }
+
+  .totalPrice {
+    font-size: 20px;
+  }
 }

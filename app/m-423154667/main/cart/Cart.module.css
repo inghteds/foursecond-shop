@@ -8,33 +8,38 @@
 .cartContainer {
   display: flex;
   gap: 20px;
-  align-items: stretch; /* 高さを揃える */
+  align-items: stretch;
 }
 
 /* □ 共通カード */
-.cartCard, .summaryCard {
+.cartCard,
+.summaryCard {
   background-color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 16px;
   display: flex;
-  flex-direction: column;  /* 高さ計算用 */
+  flex-direction: column;
   justify-content: flex-start;
 }
 
 /* 左カードを広く */
-.cartCard { flex: 2; }
+.cartCard {
+  flex: 2;
+}
 
 /* 右カード */
-.summaryCard { flex: 1; }
+.summaryCard {
+  flex: 1;
+}
 
+/* ===== ショッピングカート（左） ===== */
 .cardHeader {
   display: flex;
-  justify-content: space-between; /* 左右に配置 */
-  align-items: center; /* 縦位置を揃える */
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
-/* 見出し太く大きく */
 .cardHeader h2 {
   font-size: 26px;
   font-weight: 800;
@@ -45,7 +50,6 @@
   color: #555;
 }
 
-/* 商品行 */
 .productRow {
   display: flex;
   align-items: flex-start;
@@ -84,21 +88,39 @@
   font-size: 12px;
   vertical-align: top;
 }
+
 .amount {
   font-size: 26px;
   font-weight: bold;
 }
 
-/* 小計 */
+/* ===== 小計カード（右） ===== */
 .summaryTitle {
   font-weight: bold;
   margin-bottom: 8px;
+  color: #000; /* ← 黒に固定 */
+}
+
+.summaryPrice {
+  margin-bottom: 16px;
+}
+
+.summaryPrice .yen {
+  font-size: 14px;
+  vertical-align: top;
+  color: #e60000; /* ← 赤 */
+}
+
+.summaryPrice .amount {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e60000; /* ← 赤 */
 }
 
 /* ===== ボタン（黒トーン＋スピナー対応） ===== */
 .checkoutButton {
   margin-top: auto;
-  background-color: #3a3a3a;   /* 押す前は薄めの黒 */
+  background-color: #3a3a3a;
   border: none;
   border-radius: 20px;
   padding: 6px 10px;
@@ -108,7 +130,7 @@
   color: #fff;
   cursor: pointer;
   font-size: 14px;
-  display: flex;               /* 中央にスピナー/文字を配置 */
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -116,11 +138,11 @@
 }
 
 .checkoutButton:hover {
-  background-color: #000;      /* ホバーは真っ黒 */
+  background-color: #000;
 }
 
 .checkoutButton:active {
-  background-color: #000;      /* クリックも真っ黒 */
+  background-color: #000;
   transform: scale(0.97);
 }
 
@@ -134,31 +156,75 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;      /* 真っ白に見せたい場合 */
+  background-color: #fff;
   height: 100vh;
   width: 100%;
 }
 
-/* 大きめスピナー（ページ読み込み時） */
 .spinner {
   width: 36px;
   height: 36px;
-  border: 3px solid rgba(0,0,0,0.2);
+  border: 3px solid rgba(0, 0, 0, 0.2);
   border-top: 3px solid #000;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
-/* 小型スピナー（ボタン内） */
 .spinnerSmall {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-top: 2px solid #fff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================
+   スマホ用デザイン
+===================== */
+@media (max-width: 768px) {
+  .cartContainer {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ✅ 左のショッピングカートを非表示 */
+  .cartCard {
+    display: none;
+  }
+
+  /* ✅ 小計カードを全幅で表示 */
+  .summaryCard {
+    flex: none;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+  }
+
+  .summaryTitle {
+    font-size: 16px;
+    color: #000; /* 黒を維持 */
+  }
+
+  .summaryPrice .yen {
+    font-size: 14px;
+    color: #e60000; /* 赤 */
+  }
+
+  .summaryPrice .amount {
+    font-size: 26px;
+    color: #e60000; /* 赤 */
+  }
+
+  .checkoutButton {
+    height: 40px;
+    border-radius: 22px;
+    font-size: 15px;
+  }
 }

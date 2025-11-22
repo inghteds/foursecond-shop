@@ -197,6 +197,12 @@
     border-radius: 4px 0 0 4px;
     padding: 0 10px;
     font-size: 14px;
+    color: #333; /* ← 入力中の文字を濃く */
+  }
+
+  /* ✅ プレースホルダー文字の色を濃いグレーに変更 */
+  .mobileSearchInput::placeholder {
+    color: #555;
   }
 
   .mobileSearchButton {

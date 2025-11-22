@@ -18,7 +18,6 @@ export default function CheckoutPage() {
   return (
     <div className={styles.checkoutPage}>
       <div className={styles.container}>
-
         {/* --- カード1：動画案内 --- */}
         <div className={styles.card}>
           <h2 className={styles.cardTitle}>
@@ -26,7 +25,16 @@ export default function CheckoutPage() {
           </h2>
           <hr />
           <div className={styles.videoWrapper}>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x1jQxQZj4Qk?si=6g6dnEAzOdWND31o" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/x1jQxQZj4Qk?si=6g6dnEAzOdWND31o"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
 
@@ -58,7 +66,6 @@ export default function CheckoutPage() {
             <span className={styles.totalPrice}>¥0</span>
           </div>
         </div>
-
       </div>
     </div>
   );
