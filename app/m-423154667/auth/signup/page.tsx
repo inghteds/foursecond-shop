@@ -69,6 +69,8 @@ export default function SignupPage() {
           justify-content: flex-start;
           background-color: #fff;
           padding-top: 60px;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #000;
         }
 
         .logoWrapper {
@@ -90,6 +92,7 @@ export default function SignupPage() {
           font-size: 20px;
           text-align: center;
           margin-bottom: 8px;
+          color: #000;
         }
 
         .field {
@@ -100,6 +103,7 @@ export default function SignupPage() {
 
         label {
           font-size: 14px;
+          color: #000;
         }
 
         input {
@@ -107,6 +111,11 @@ export default function SignupPage() {
           border: 1px solid #ccc;
           border-radius: 6px;
           font-size: 14px;
+          color: #000;
+        }
+
+        input::placeholder {
+          color: #aaa;
         }
 
         .error {
@@ -127,6 +136,7 @@ export default function SignupPage() {
           display: flex;
           align-items: center;
           justify-content: center;
+          color: #000; /* ボタン文字：黒 */
         }
 
         .registerButton:hover {
@@ -154,6 +164,31 @@ export default function SignupPage() {
           }
           100% {
             transform: rotate(360deg);
+          }
+        }
+
+        /* ======================
+           携帯版デザイン
+        ====================== */
+        @media (max-width: 768px) {
+          .card {
+            width: 90%;
+            padding: 20px;
+            border-radius: 10px;
+          }
+
+          .title,
+          label,
+          .registerButton {
+            color: #000; /* 文字すべて黒 */
+          }
+
+          input {
+            color: #666; /* 入力文字グレー */
+          }
+
+          input::placeholder {
+            color: #666; /* プレースホルダーもグレー */
           }
         }
       `}</style>
