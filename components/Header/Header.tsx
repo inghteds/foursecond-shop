@@ -13,14 +13,22 @@ export default function Header() {
   const { cartCount } = useCart();
   const { username } = useUser();
   const cartImage = cartCount > 0 ? "/cart-1.png" : "/cart-0.png";
-  const [found, setFound] = useState(false);
+
+  // ✅ 初期値を null にして「探索中」状態を表現
+  const [found, setFound] = useState<boolean | null>(null);
+  const [welcomeMessage, setWelcomeMessage] = useState("ようこそ、４秒通販へ");
 
   useEffect(() => {
-    const timer = setTimeout(() => setFound(true), 10000);
+    // ✅ 10秒後に「発見できませんでした」に切り替え
+    const timer = setTimeout(() => {
+      setFound(false);
+      setWelcomeMessage("あなたにお届けすることはできません。");
+    }, 10000);
+
+    // ✅ クリーンアップ
     return () => clearTimeout(timer);
   }, []);
 
-  // ✅ 検索ボタン押下時：productページへ遷移
   const handleSearchClick = () => {
     router.push("/m-423154667/main/product");
   };
@@ -41,21 +49,14 @@ export default function Header() {
           type="button"
           onClick={handleSearchClick}
         >
-          <Image
-            src="/search-icon-white.png"
-            alt="検索"
-            width={20}
-            height={20}
-          />
+          <Image src="/search-icon-white.png" alt="検索" width={20} height={20} />
         </button>
       </div>
 
       {/* ======== PC用トップヘッダー ======== */}
       <div className={styles.topHeader}>
-        {/* メニュー */}
         <button className={styles.menuButton}>☰</button>
 
-        {/* ロゴ */}
         <div className={styles.logoWrapper}>
           <Link href="/m-423154667/main/product">
             <Image
@@ -68,42 +69,32 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* お届け先 */}
         <div className={styles.deliveryWrapper}>
           <span className={styles.deliveryLabel}>お届け先　{displayName}</span>
 
-          {!found ? (
+          {found === null ? (
             <div className={styles.loadingContainer}>
               <div className={styles.spinner}></div>
               <span className={styles.deliveryStatus}>居場所を探しています。</span>
             </div>
-          ) : (
+          ) : found ? (
             <span className={styles.deliveryStatus}>発見しました。</span>
+          ) : (
+            <span className={styles.deliveryStatus}>発見できませんでした。</span>
           )}
         </div>
 
-        {/* 検索バー（PC用） */}
         <div className={styles.searchWrapper}>
-          <input
-            type="text"
-            className={styles.searchInput}
-            placeholder="検索"
-          />
+          <input type="text" className={styles.searchInput} placeholder="検索" />
           <button
             className={styles.searchButton}
             type="button"
             onClick={handleSearchClick}
           >
-            <Image
-              src="/search-icon-white.png"
-              alt="検索"
-              width={20}
-              height={20}
-            />
+            <Image src="/search-icon-white.png" alt="検索" width={20} height={20} />
           </button>
         </div>
 
-        {/* 右エリア */}
         <div className={styles.rightArea}>
           <div className={styles.jpFlag}>
             <Image src="/jp-flag.png" alt="JP" width={28} height={18} />
@@ -123,15 +114,15 @@ export default function Header() {
         <div className={styles.mobileRow}>
           <div className={styles.mobileDelivery}>
             <span className={styles.deliveryLabel}>お届け先　{displayName}</span>
-            {!found ? (
+            {found === null ? (
               <div className={styles.loadingContainer}>
                 <div className={styles.spinner}></div>
-                <span className={styles.deliveryStatus}>
-                  居場所を探しています。
-                </span>
+                <span className={styles.deliveryStatus}>居場所を探しています。</span>
               </div>
-            ) : (
+            ) : found ? (
               <span className={styles.deliveryStatus}>発見しました。</span>
+            ) : (
+              <span className={styles.deliveryStatus}>発見できませんでした。</span>
             )}
           </div>
 
@@ -141,13 +132,13 @@ export default function Header() {
         </div>
 
         <div className={styles.bottomHeaderMobile}>
-          <span className={styles.welcomeText}>ようこそ、４秒通販へ</span>
+          <span className={styles.welcomeText}>{welcomeMessage}</span>
         </div>
       </div>
 
       {/* ======== PC用下部 ======== */}
       <div className={styles.bottomHeader}>
-        <span className={styles.welcomeText}>ようこそ、４秒通販へ</span>
+        <span className={styles.welcomeText}>{welcomeMessage}</span>
       </div>
     </header>
   );
