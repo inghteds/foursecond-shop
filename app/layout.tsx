@@ -40,6 +40,7 @@ export const metadata: Metadata = {
   other: {
     "google-site-verification": "JuIbKa05TqSx1A1UZniPMTViLnpIB9NBg9_cGu1TvF8",
   },
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({
