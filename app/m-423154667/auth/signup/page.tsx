@@ -107,11 +107,14 @@ export default function SignupPage() {
         }
 
         input {
-          padding: 8px 10px;
+          padding: 10px 12px;
           border: 1px solid #ccc;
           border-radius: 6px;
-          font-size: 14px;
+          font-size: 16px; /* ✅ ズーム防止 */
           color: #000;
+          width: 100%;
+          box-sizing: border-box;
+          touch-action: manipulation; /* ✅ iOSのズーム軽減 */
         }
 
         input::placeholder {
@@ -136,7 +139,7 @@ export default function SignupPage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #000; /* ボタン文字：黒 */
+          color: #000;
         }
 
         .registerButton:hover {
@@ -180,15 +183,16 @@ export default function SignupPage() {
           .title,
           label,
           .registerButton {
-            color: #000; /* 文字すべて黒 */
+            color: #000;
           }
 
           input {
-            color: #666; /* 入力文字グレー */
+            color: #666;
+            font-size: 16px; /* ✅ モバイルズーム防止の決定版 */
           }
 
           input::placeholder {
-            color: #666; /* プレースホルダーもグレー */
+            color: #666;
           }
         }
       `}</style>
