@@ -4,13 +4,19 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Complete.module.css";
 import ProductCard from "@/components/Header/ProductCard/ProductCard";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext"; // ✅ カートのコンテキストをインポート
 
 export default function CompletePage() {
+  const { clearCart } = useCart(); // ✅ カートを空にする関数を取得
   const [status, setStatus] = useState("発送準備中");
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const timers = useRef<number[]>([]);
 
   useEffect(() => {
+    // ✅ ページ表示時にカートをリセット
+    clearCart();
+
+    // 配送ステップのアニメーション
     timers.current.push(
       window.setTimeout(() => {
         setStatus("配送中");
@@ -36,7 +42,7 @@ export default function CompletePage() {
       timers.current.forEach((id) => clearTimeout(id));
       timers.current = [];
     };
-  }, []);
+  }, [clearCart]); // ← clearCart を依存配列に追加
 
   const products = Array.from({ length: 20 }, () => ({
     imageSrc: "/product_white.png",

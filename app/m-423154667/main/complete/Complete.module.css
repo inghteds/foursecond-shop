@@ -82,24 +82,31 @@
   display: none; /* ← PCでは非表示 */
 }
 
+/* ✅ 黄色ボタン＋中央寄せテキスト */
 .continueButton {
-  background-color: #1d1d1d;
-  color: #fff;
+  background-color: #ffd814; /* 明るいAmazon風イエロー */
+  color: #111;
   text-decoration: none;
-  border-radius: 22px;
-  padding: 10px 24px;
+  border-radius: 25px;
   font-weight: bold;
   font-size: 16px;
-  transition: background-color 0.2s, transform 0.1s;
-  display: inline-block;
+  width: 240px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ← 上下左右中央寄せ */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.15s, transform 0.1s;
 }
 
 .continueButton:hover {
-  background-color: #000;
+  background-color: #f7ca00; /* 少し濃く */
 }
 
 .continueButton:active {
-  transform: scale(0.97);
+  background-color: #f0b800; /* 押したときさらに濃く */
+  transform: scale(0.98);
 }
 
 /* ===========================
@@ -180,11 +187,9 @@
 
   .continueButton {
     width: 70%;
-    text-align: center;
+    height: 42px;
     font-size: 15px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 20px;
+    border-radius: 22px;
   }
 
   /* おすすめセクション */
@@ -235,6 +240,7 @@
 
   .continueButton {
     width: 80%;
+    height: 40px;
     font-size: 14px;
   }
 

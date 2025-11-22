@@ -3,11 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./Header.module.css";
 import { useCart } from "@/context/CartContext";
 import { useUser } from "@/context/UserContext";
 
 export default function Header() {
+  const router = useRouter();
   const { cartCount } = useCart();
   const { username } = useUser();
   const cartImage = cartCount > 0 ? "/cart-1.png" : "/cart-0.png";
@@ -18,8 +20,9 @@ export default function Header() {
     return () => clearTimeout(timer);
   }, []);
 
+  // ✅ 検索ボタン押下時：productページへ遷移
   const handleSearchClick = () => {
-    window.location.reload();
+    router.push("/m-423154667/main/product");
   };
 
   const displayName = username ? `${username}さん` : "ゲストさん";
