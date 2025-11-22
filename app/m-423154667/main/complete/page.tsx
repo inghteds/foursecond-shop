@@ -33,7 +33,7 @@ export default function CompletePage() {
 
     timers.current.push(
       window.setTimeout(() => {
-        setStatus("だからあなたにお届けすることはできませんって言いましたよね");
+        setStatus("配達失敗");
         setStep(4);
       }, 4000)
     );
