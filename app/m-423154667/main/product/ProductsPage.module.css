@@ -8,6 +8,7 @@
   padding: 16px;
   max-width: 1400px;
   margin: 0 auto;
+  background-color: #fff; /* ✅ 背景を常に白に固定 */
 }
 
 /* =====================
@@ -16,6 +17,7 @@
 @media (max-width: 1024px) {
   .container {
     grid-template-columns: repeat(3, 1fr); /* タブレット：3列 */
+    background-color: #fff; /* ✅ 念のため明示 */
   }
 }
 
@@ -27,6 +29,7 @@
     grid-template-columns: repeat(2, 1fr); /* スマホ：2列 */
     gap: 10px;
     padding: 10px;
+    background-color: #fff; /* ✅ 背景を白で上書き */
   }
 }
 
@@ -38,5 +41,6 @@
     grid-template-columns: repeat(2, 1fr); /* SEなどでも2列維持 */
     gap: 8px;
     padding: 8px;
+    background-color: #fff; /* ✅ 最優先で白固定 */
   }
 }
