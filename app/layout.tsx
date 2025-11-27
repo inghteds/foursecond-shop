@@ -48,8 +48,38 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // ✅ ここで構造化データを追加
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "4秒通販",
+    "alternateName": ["4SecondShop", "4びょう通販"],
+    "url": "https://4secondshop.vercel.app/",
+  };
+
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "4秒通販",
+    "url": "https://4secondshop.vercel.app/",
+    "logo": "https://4secondshop.vercel.app/logo2.png",
+  };
+
   return (
     <html lang="ja">
+      <head>
+        {/* ✅ サイト名を明示して「Vercel」表記を防ぐ */}
+        <meta name="application-name" content="4秒通販" />
+        <meta property="og:site_name" content="4秒通販" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.className} antialiased`}
       >
