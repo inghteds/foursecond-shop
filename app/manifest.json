@@ -1,0 +1,16 @@
+{
+  "name": "4秒通販",
+  "short_name": "4秒通販",
+  "description": "4秒で商品をお届けいたします。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32 48x48 512x512",
+      "type": "image/x-icon"
+    }
+  ]
+}
